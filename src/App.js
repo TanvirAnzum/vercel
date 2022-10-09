@@ -1,14 +1,8 @@
-import { useEffect, useState } from "react";
+import { useGetPostsQuery } from "./api";
 import "./App.css";
 
 function App() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch("https://project-management-app-server.onrender.com/projects")
-      .then((response) => response.json())
-      .then((data) => setData(data));
-  }, []);
+  const { data } = useGetPostsQuery();
 
   return (
     <ul className="App">
